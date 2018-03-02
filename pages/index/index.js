@@ -27,22 +27,15 @@ Page({
     ]
   },
   onLoad(e) {
-    wechat.getLocation("gcj02")
+    amap.getRegeo()
       .then(d => {
-        // console.log(d);
-        let { latitude, longitude } = d;
-        this.setData({
-          latitude,
-          longitude,
-        });
-        return amap.getRegeo();
-      })
-      .then(d => {
-        // console.log(d);
-        let { name, desc } = d[0];
+        console.log(d);
+        let { name, desc, latitude, longitude } = d[0];
         let { city } = d[0].regeocodeData.addressComponent;
         this.setData({
           city,
+          latitude,
+          longitude,
           textData: { name, desc }
         })
       })
