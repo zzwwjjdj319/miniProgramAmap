@@ -39,9 +39,11 @@ Page({
       })
       .then(d => {
         // console.log(d);
+        let { name, desc } = d[0];
         let { city } = d[0].regeocodeData.addressComponent;
         this.setData({
-          city
+          city,
+          textData: { name, desc }
         })
       })
       .catch(e => {
@@ -79,18 +81,19 @@ Page({
   getRoute() {
     // 起点
     let { latitude, longitude, markers, markerId, city } = this.data;
+    if (!markers.length) return;
     // 终点
     let { latitude: latitude2, longitude: longitude2 } = markers[markerId];
     let url = `/pages/routes/routes?longitude=${longitude}&latitude=${latitude}&longitude2=${longitude2}&latitude2=${latitude2}&city=${city}`;
     wx.navigateTo({ url });
   },
   clickcontrol(e) {
-    // console.log(e);
+    console.log("回到用户当前定位点");
     let { controlId } = e;
     let mpCtx = wx.createMapContext("map");
     mpCtx.moveToLocation();
   },
   mapchange() {
-    console.log("改变视野");
+    // console.log("改变视野");
   }
 })
