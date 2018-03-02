@@ -1,0 +1,15 @@
+<view class="section">
+  <input bindtouchstart="bindInput" placeholder="查找地点、公交、地铁" value="{{keywords}}" />
+</view>
+<view class="map_container">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}"
+    bindmarkertap="makertap" controls="{{controls}}" bindcontroltap="clickcontrol" bindregionchange="mapchange"></map>
+</view>
+<view class="map_text" wx:if="{{textData.name}}">
+  <view class="map-1" bindtap="getRoute">
+    <image src="/images/jt.png"></image>
+    <view>路线</view>
+  </view>
+  <text class="h1">{{textData.name}}</text>
+  <text>{{textData.desc}}</text>
+</view>
