@@ -11,10 +11,12 @@ Page({
     distance: '',
     cost: '',
     transits: [],
-    city: ""
+    city: "",
+    name: "",
+    desc: ""
   },
   onLoad(e) {
-    let { latitude, longitude, latitude2, longitude2, city } = e;
+    let { latitude, longitude, latitude2, longitude2, city, name, desc } = e;
     let markers = [
       {
         iconPath: "/images/mapicon_navi_s.png",
@@ -34,7 +36,7 @@ Page({
     ];
 
     this.setData({
-      latitude, longitude, latitude2, longitude2, markers, city
+      latitude, longitude, latitude2, longitude2, markers, city, name, desc
     });
     this.getRoute();
   },
@@ -134,5 +136,14 @@ Page({
   goDetail() {
     let url = `/pages/info/info`;
     wx.navigateTo({ url });
+  },
+  nav() {
+    let { latitude2, longitude2, name, desc } = this.data;
+    wx.openLocation({
+      latitude: +latitude2,
+      longitude: +longitude2,
+      name,
+      address: desc
+    });
   }
 });
