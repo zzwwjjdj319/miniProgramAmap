@@ -73,11 +73,12 @@ Page({
   },
   getRoute() {
     // 起点
-    let { latitude, longitude, markers, markerId, city } = this.data;
+    let { latitude, longitude, markers, markerId, city, textData } = this.data;
+    let { name, desc } = textData;
     if (!markers.length) return;
     // 终点
     let { latitude: latitude2, longitude: longitude2 } = markers[markerId];
-    let url = `/pages/routes/routes?longitude=${longitude}&latitude=${latitude}&longitude2=${longitude2}&latitude2=${latitude2}&city=${city}`;
+    let url = `/pages/routes/routes?longitude=${longitude}&latitude=${latitude}&longitude2=${longitude2}&latitude2=${latitude2}&city=${city}&name=${name}&desc=${desc}`;
     wx.navigateTo({ url });
   },
   clickcontrol(e) {
