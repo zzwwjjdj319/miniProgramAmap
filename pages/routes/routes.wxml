@@ -13,6 +13,7 @@
   <view class="text">{{distance}}</view>
   <view class="text">{{cost}}</view>
   <view class="detail_button" bindtouchstart="goDetail">详情</view>
+  <view class="detail_button2" bindtouchstart="nav">导航</view>
 </view>
 
 <view class="bus_box" wx:for="{{transits}}" wx:for-item="i" wx:key="key1" wx:if="{{cindex==2}}">
