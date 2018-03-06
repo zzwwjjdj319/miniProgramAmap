@@ -37,7 +37,18 @@
 }
 .detail_button{
   position:absolute;
-  bottom: 30px;
+  bottom: 50px;
+  right: 10px;
+  padding: 3px 5px;
+  color: #fff;
+  background: #0091ff;
+  width:50px;
+  text-align:center;
+  border-radius:5px;
+}
+.detail_button2{
+  position:absolute;
+  bottom: 10px;
   right: 10px;
   padding: 3px 5px;
   color: #fff;
